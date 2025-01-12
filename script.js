@@ -21,4 +21,6 @@ function getRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
+
+
 setInterval(createHearts, 1000);

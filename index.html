@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz 1 Mês</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para o ícone de som -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <!-- Ícone de som -->
+    <div class="audio-container">
+        <i class="fas fa-volume-mute" id="audio-icon" onclick="playMusic()"></i>
+    </div>
+
     <!-- Música de fundo -->
-    <audio autoplay loop>
+    <audio id="audio" loop>
         <source src="musica.mp3" type="audio/mpeg">
         Seu navegador não suporta reprodução de áudio.
     </audio>
-
-    <!-- Corações animados -->
-    <div class="heart-container">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-    </div>
 
     <!-- Conteúdo principal -->
     <div class="container">
@@ -58,8 +52,25 @@
         </div>
     </div>
 
-    <!-- Arquivo JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Variáveis do áudio e ícone
+        var audio = document.getElementById('audio');
+        var icon = document.getElementById('audio-icon');
+
+        // Função para alternar entre som ligado e desligado
+        function playMusic() {
+            if (audio.paused) {
+                audio.play(); // Reproduz o áudio
+                audio.muted = false; // Certifica-se de que o áudio não está mudo
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            } else {
+                audio.pause(); // Pausa o áudio
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            }
+        }
+    </script>
 </body>
 
 </html>
