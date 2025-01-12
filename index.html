@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz 1 Mês</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para o ícone de som -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <!-- Ícone de som -->
     <div class="audio-container">
-        <i class="fas fa-volume-up" id="audio-icon" onclick="playMusic()"></i>
+        <i class="fas fa-volume-mute" id="audio-icon" onclick="playMusic()"></i>
     </div>
 
     <!-- Música de fundo -->
@@ -49,38 +51,45 @@
             </div>
         </div>
 
-        <!-- Mensagem final abaixo das fotos -->
-        <p class="final-message">Que venham mais momentos incríveis! Te amo muito! 💖</p>
+        <!-- Frase abaixo das fotos -->
+        <p class="final-message">
+            Muita historia para 1 mês só! 💖
+        </p>
     </div>
 
     <script>
+        // Função para tocar e pausar a música
         function playMusic() {
             var audio = document.getElementById('audio');
             var icon = document.getElementById('audio-icon');
 
-            // Se o áudio não estiver tocando, começa a tocar e muda o ícone para "pausa"
             if (audio.paused) {
                 audio.play();
-                icon.classList.remove('fa-volume-up');
-                icon.classList.add('fa-volume-off');
+                audio.muted = false;
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
             } else {
                 audio.pause();
-                icon.classList.remove('fa-volume-off');
-                icon.classList.add('fa-volume-up');
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
             }
         }
 
-        // Criando corações dinamicamente na tela
-        setInterval(function () {
-            var heart = document.createElement('div');
-            heart.classList.add('heart');
-            document.body.appendChild(heart);
+        // Função para criar corações animados
+        function createHearts() {
+            var body = document.body;
+            for (var i = 0; i < 10; i++) {
+                var heart = document.createElement('div');
+                heart.classList.add('heart');
+                body.appendChild(heart);
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+            }
+        }
 
-            // Remover o coração após a animação
-            setTimeout(function () {
-                heart.remove();
-            }, 4000); // Tempo que a animação dura
-        }, 500); // Criar corações a cada 500ms
+        // Chama a função para criar os corações
+        createHearts();
     </script>
 </body>
 
