@@ -1,0 +1,110 @@
+/* Fundo geral */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #5d4037, #3e2723);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Container centralizado */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Mensagem */
+.message {
+    font-size: 1.2rem;
+    font-family: 'Georgia', serif;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+/* Carrossel */
+.carousel {
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-inner {
+    display: flex;
+    animation: slide 20s infinite;
+}
+
+.photo {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+/* Animação do carrossel */
+@keyframes slide {
+
+    0%,
+    10% {
+        transform: translateX(0);
+    }
+
+    20%,
+    30% {
+        transform: translateX(-100%);
+    }
+
+    40%,
+    50% {
+        transform: translateX(-200%);
+    }
+
+    60%,
+    70% {
+        transform: translateX(-300%);
+    }
+
+    80%,
+    90% {
+        transform: translateX(-400%);
+    }
+
+    100% {
+        transform: translateX(-500%);
+    }
+}
+
+/* Animação dos corações */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: float 5s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart::after {
+    left: 0;
+    top: -50%;
+}
