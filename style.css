@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #420808, #571206);
+    background: linear-gradient(45deg, #491111, #3d1717);
     color: #fff;
     overflow: hidden;
     height: 100vh;
@@ -110,13 +110,12 @@ h1 {
 .heart {
     position: absolute;
     width: 30px;
-    /* Aumentando um pouco o tamanho */
     height: 30px;
-    /* Aumentando um pouco o tamanho */
     background-color: red;
     transform: rotate(45deg);
-    animation: float 5s linear infinite, move 4s ease-in-out infinite;
-    z-index: 0;
+    animation: float 5s linear infinite, move 6s ease-in-out infinite;
+    z-index: 2;
+    /* Coloca os corações na frente das imagens */
     opacity: 1;
 }
 
@@ -164,12 +163,12 @@ h1 {
     }
 
     50% {
-        left: 40%;
+        left: calc(50% + 20vw);
         top: 50%;
     }
 
     100% {
-        left: 60%;
+        left: calc(50% - 20vw);
         top: 0;
     }
 }
