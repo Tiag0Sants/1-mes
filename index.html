@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz 1 Mês</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome para o ícone de som -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -53,7 +51,7 @@
 
         <!-- Frase abaixo das fotos -->
         <p class="final-message">
-            Muita historia para 1 mês só! 💖
+            Muita história para 1 mês só! 💖
         </p>
     </div>
 
@@ -78,7 +76,7 @@
         // Função para criar corações animados
         function createHearts() {
             var body = document.body;
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 20; i++) {
                 var heart = document.createElement('div');
                 heart.classList.add('heart');
                 body.appendChild(heart);
@@ -89,7 +87,7 @@
         }
 
         // Chama a função para criar os corações
-        createHearts();
+        setInterval(createHearts, 1000);
     </script>
 </body>
 

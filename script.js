@@ -4,12 +4,19 @@ function createHearts() {
     for (let i = 0; i < 20; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
+
+        // Definindo a posição inicial aleatória do coração
         heart.style.left = Math.random() * 100 + 'vw';
+
+        // Definindo a duração da animação de forma aleatória
         heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+        // Definindo a cor aleatória para o coração
         heart.style.backgroundColor = getRandomColor();
 
         body.appendChild(heart);
 
+        // Removendo o coração após 5 segundos
         setTimeout(() => {
             heart.remove();
         }, 5000);
@@ -21,6 +28,5 @@ function getRandomColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-
-
+// Chamando a função de criação de corações a cada 1 segundo
 setInterval(createHearts, 1000);

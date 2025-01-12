@@ -6,7 +6,6 @@ body {
     color: #fff;
     overflow: hidden;
     height: 100vh;
-    /* Aumentando a altura da página */
     position: relative;
 }
 
@@ -94,10 +93,11 @@ h1 {
     height: 20px;
     background: red;
     transform: rotate(-45deg);
-    animation: float 5s linear infinite;
+    animation: float 5s linear infinite, move 4s ease-in-out infinite;
     z-index: 0;
 }
 
+/* Corações adicionais */
 .heart::before,
 .heart::after {
     content: '';
@@ -116,6 +116,7 @@ h1 {
     top: -50%;
 }
 
+/* Animação de flutuação */
 @keyframes float {
     0% {
         transform: translateY(0) rotate(-45deg);
@@ -127,6 +128,24 @@ h1 {
 
     100% {
         transform: translateY(0) rotate(-45deg);
+    }
+}
+
+/* Animação dos corações se movendo pela tela */
+@keyframes move {
+    0% {
+        left: -10%;
+        top: 90%;
+    }
+
+    50% {
+        left: 50%;
+        top: 20%;
+    }
+
+    100% {
+        left: 110%;
+        top: 90%;
     }
 }
 
