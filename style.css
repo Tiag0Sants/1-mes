@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #491111, #3d1717);
+    background: linear-gradient(45deg, #5d4037, #3e2723);
     color: #fff;
     overflow: hidden;
     height: 100vh;
@@ -113,7 +113,7 @@ h1 {
     height: 30px;
     background-color: red;
     transform: rotate(45deg);
-    animation: float 5s linear infinite, move 6s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite, move 6s ease-in-out infinite;
     z-index: 2;
     /* Coloca os corações na frente das imagens */
     opacity: 1;
@@ -158,18 +158,33 @@ h1 {
 /* Animação dos corações se movendo pela tela */
 @keyframes move {
     0% {
-        left: 50%;
+        left: calc(50% - 15px);
+        /* Inicia no meio da tela */
         top: 100%;
     }
 
+    25% {
+        left: calc(50% + 50px);
+        /* Movimenta para a direita */
+        top: 70%;
+    }
+
     50% {
-        left: calc(50% + 20vw);
-        top: 50%;
+        left: calc(50% - 50px);
+        /* Movimenta para a esquerda */
+        top: 40%;
+    }
+
+    75% {
+        left: calc(50% + 30px);
+        /* Movimenta novamente para a direita */
+        top: 10%;
     }
 
     100% {
-        left: calc(50% - 20vw);
-        top: 0;
+        left: calc(50% - 30px);
+        /* Retorna para o centro */
+        top: -10%;
     }
 }
 
