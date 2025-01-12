@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #5d4037, #3e2723);
+    background: linear-gradient(45deg, #420808, #571206);
     color: #fff;
     overflow: hidden;
     height: 100vh;
@@ -109,12 +109,12 @@ h1 {
 /* Animação dos corações */
 .heart {
     position: absolute;
-    width: 20px;
-    /* Tamanho reduzido */
-    height: 20px;
-    /* Tamanho reduzido */
-    background: red;
-    transform: rotate(-45deg);
+    width: 30px;
+    /* Aumentando um pouco o tamanho */
+    height: 30px;
+    /* Aumentando um pouco o tamanho */
+    background-color: red;
+    transform: rotate(45deg);
     animation: float 5s linear infinite, move 4s ease-in-out infinite;
     z-index: 0;
     opacity: 1;
@@ -125,50 +125,52 @@ h1 {
 .heart::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
+    width: 30px;
+    height: 30px;
+    background-color: red;
     border-radius: 50%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
 }
 
 .heart::after {
-    left: 0;
-    top: -50%;
+    top: 0;
+    left: 15px;
 }
 
 /* Animação de flutuação */
 @keyframes float {
     0% {
-        transform: translateY(0) rotate(-45deg);
+        transform: translateY(0) rotate(45deg);
     }
 
     50% {
-        transform: translateY(-100px) rotate(-45deg);
+        transform: translateY(-100px) rotate(45deg);
     }
 
     100% {
-        transform: translateY(0) rotate(-45deg);
+        transform: translateY(0) rotate(45deg);
     }
 }
 
 /* Animação dos corações se movendo pela tela */
 @keyframes move {
     0% {
-        left: -10%;
-        top: 90%;
+        left: 50%;
+        top: 100%;
     }
 
     50% {
-        left: 50%;
-        top: 20%;
+        left: 40%;
+        top: 50%;
     }
 
     100% {
-        left: 110%;
-        top: 90%;
+        left: 60%;
+        top: 0;
     }
 }
 
