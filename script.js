@@ -1,3 +1,4 @@
+// Função para criar corações animados
 function createHearts() {
     const body = document.body;
 
@@ -14,6 +15,7 @@ function createHearts() {
         // Definindo a cor aleatória para o coração
         heart.style.backgroundColor = getRandomColor();
 
+        // Adicionando o coração ao corpo da página
         body.appendChild(heart);
 
         // Removendo o coração após 5 segundos
@@ -23,6 +25,7 @@ function createHearts() {
     }
 }
 
+// Função para obter uma cor aleatória
 function getRandomColor() {
     const colors = ['#FF5C5C', '#FF8C5C', '#FF5CCB', '#FFB75C'];
     return colors[Math.floor(Math.random() * colors.length)];
