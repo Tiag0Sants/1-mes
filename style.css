@@ -109,8 +109,10 @@ h1 {
 /* Animação dos corações */
 .heart {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    /* Tamanho reduzido */
+    height: 20px;
+    /* Tamanho reduzido */
     background: red;
     transform: rotate(-45deg);
     animation: float 5s linear infinite, move 4s ease-in-out infinite;
