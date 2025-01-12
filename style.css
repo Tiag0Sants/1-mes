@@ -2,16 +2,15 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #491505, #460f05);
+    background: linear-gradient(45deg, #5d4037, #3e2723);
     color: #fff;
     overflow: hidden;
+    height: 100%;
+    /* Certifica que o body ocupe toda a altura da tela */
     display: flex;
     flex-direction: column;
-    /* Ajuste para a estrutura em coluna */
-    justify-content: space-between;
-    /* Garante que o conteúdo ocupe todo o espaço disponível */
-    height: 100vh;
-    /* A altura será 100% da tela */
+    justify-content: flex-start;
+    /* Garante que o conteúdo fique alinhado no topo */
 }
 
 /* Container centralizado */
@@ -19,9 +18,12 @@ body {
     text-align: center;
     padding: 20px;
     position: relative;
-    flex-grow: 1;
-    /* Permite que a container ocupe o espaço restante */
     z-index: 1;
+    flex-grow: 1;
+    /* Faz com que o conteúdo ocupe o máximo possível da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Título */
@@ -101,7 +103,6 @@ h1 {
     background: red;
     transform: rotate(-45deg);
     animation: float 5s linear infinite;
-    z-index: 0;
 }
 
 .heart::before,
@@ -143,4 +144,5 @@ h1 {
     margin-top: 20px;
     color: #ff4081;
     text-align: center;
+    z-index: 2;
 }
