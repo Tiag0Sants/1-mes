@@ -2,12 +2,16 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #5d4037, #3e2723);
+    background: linear-gradient(45deg, #491505, #460f05);
     color: #fff;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Ajuste para a estrutura em coluna */
+    justify-content: space-between;
+    /* Garante que o conteúdo ocupe todo o espaço disponível */
     height: 100vh;
-    /* Aumentando a altura da página */
-    position: relative;
+    /* A altura será 100% da tela */
 }
 
 /* Container centralizado */
@@ -15,6 +19,8 @@ body {
     text-align: center;
     padding: 20px;
     position: relative;
+    flex-grow: 1;
+    /* Permite que a container ocupe o espaço restante */
     z-index: 1;
 }
 
@@ -136,4 +142,5 @@ h1 {
     font-family: 'Georgia', serif;
     margin-top: 20px;
     color: #ff4081;
+    text-align: center;
 }
