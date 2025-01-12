@@ -50,26 +50,46 @@
                 <img src="fotos/foto14.jpg" alt="Foto 14" class="photo">
             </div>
         </div>
+
+        <!-- Frase abaixo das fotos -->
+        <p class="final-message">
+            Muita historia para 1 mês só! 💖
+        </p>
     </div>
 
     <script>
-        // Variáveis do áudio e ícone
-        var audio = document.getElementById('audio');
-        var icon = document.getElementById('audio-icon');
-
-        // Função para alternar entre som ligado e desligado
+        // Função para tocar e pausar a música
         function playMusic() {
+            var audio = document.getElementById('audio');
+            var icon = document.getElementById('audio-icon');
+
             if (audio.paused) {
-                audio.play(); // Reproduz o áudio
-                audio.muted = false; // Certifica-se de que o áudio não está mudo
+                audio.play();
+                audio.muted = false;
                 icon.classList.remove('fa-volume-mute');
                 icon.classList.add('fa-volume-up');
             } else {
-                audio.pause(); // Pausa o áudio
+                audio.pause();
                 icon.classList.remove('fa-volume-up');
                 icon.classList.add('fa-volume-mute');
             }
         }
+
+        // Função para criar corações animados
+        function createHearts() {
+            var body = document.body;
+            for (var i = 0; i < 10; i++) {
+                var heart = document.createElement('div');
+                heart.classList.add('heart');
+                body.appendChild(heart);
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+            }
+        }
+
+        // Chama a função para criar os corações
+        createHearts();
     </script>
 </body>
 
