@@ -1,51 +1,56 @@
-/* Fundo geral */
-body {
+/* Resetando as margens e a altura */
+* {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #5d4037, #3e2723);
-    color: #fff;
-    overflow: hidden;
-    height: 100vh;
-    /* Garantir que o corpo ocupe a altura total da tela */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* Deixa o conteúdo começar no topo */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Container centralizado */
+/* Estilo de fundo */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Container principal */
 .container {
     text-align: center;
+    width: 100%;
     padding: 20px;
-    position: relative;
-    z-index: 1;
     flex-grow: 1;
-    /* Faz o conteúdo ocupar o máximo da tela */
+    /* Para garantir que a página ocupe toda a altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Título */
 h1 {
-    font-family: 'Cursive', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 15px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Mensagem */
 .message {
     font-size: 1.2rem;
-    font-family: 'Georgia', serif;
-    margin: 20px auto;
-    max-width: 500px;
+    margin-bottom: 25px;
 }
 
 /* Carrossel */
 .carousel {
+    display: flex;
+    overflow: hidden;
     width: 80%;
     margin: 20px auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
 .carousel-inner {
@@ -55,7 +60,6 @@ h1 {
 
 .photo {
     width: 100%;
-    flex-shrink: 0;
     object-fit: cover;
 }
 
@@ -92,60 +96,59 @@ h1 {
     }
 }
 
-/* Animação dos corações */
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    transform: rotate(-45deg);
-    animation: float 5s linear infinite;
-}
-
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    border-radius: 50%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.heart::after {
-    left: 0;
-    top: -50%;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(-45deg);
-    }
-
-    50% {
-        transform: translateY(-100px) rotate(-45deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(-45deg);
-    }
-}
-
-/* Ícone de som */
+/* Ícone de áudio */
 .audio-container {
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 2;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Estilo do coração animado */
+.heart {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartAnimation 4s infinite;
+}
+
+/* Criar os corações passarem por toda a tela */
+@keyframes heartAnimation {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        transform: translateY(100px) rotate(-45deg);
+        left: 10%;
+    }
+
+    50% {
+        transform: translateY(200px) rotate(-45deg);
+        left: 30%;
+    }
+
+    75% {
+        transform: translateY(300px) rotate(-45deg);
+        left: 50%;
+    }
+
+    100% {
+        transform: translateY(400px) rotate(-45deg);
+        left: 70%;
+    }
 }
 
 /* Mensagem final abaixo das fotos */
 .final-message {
     font-size: 1.5rem;
-    font-family: 'Georgia', serif;
+    font-weight: bold;
     margin-top: 20px;
     color: #ff4081;
     text-align: center;

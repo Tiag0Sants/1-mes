@@ -69,6 +69,18 @@
                 icon.classList.add('fa-volume-up');
             }
         }
+
+        // Criando corações dinamicamente na tela
+        setInterval(function () {
+            var heart = document.createElement('div');
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+
+            // Remover o coração após a animação
+            setTimeout(function () {
+                heart.remove();
+            }, 4000); // Tempo que a animação dura
+        }, 500); // Criar corações a cada 500ms
     </script>
 </body>
 
