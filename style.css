@@ -75,29 +75,23 @@ h1 {
 
 /* Animação do carrossel */
 @keyframes slide {
-
-    0%,
-    10% {
+    0%, 10% {
         transform: translateX(0);
     }
 
-    20%,
-    30% {
+    20%, 30% {
         transform: translateX(-100%);
     }
 
-    40%,
-    50% {
+    40%, 50% {
         transform: translateX(-200%);
     }
 
-    60%,
-    70% {
+    60%, 70% {
         transform: translateX(-300%);
     }
 
-    80%,
-    90% {
+    80%, 90% {
         transform: translateX(-400%);
     }
 
@@ -109,82 +103,58 @@ h1 {
 /* Animação dos corações */
 .heart {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: red;
     transform: rotate(45deg);
-    animation: float 5s ease-in-out infinite, move 6s ease-in-out infinite;
-    z-index: 2;
-    /* Coloca os corações na frente das imagens */
-    opacity: 1;
+    animation: floatUp ease-in-out infinite, drift ease-in-out infinite;
+    z-index: 10;
+    opacity: 0.8;
 }
 
-/* Corações adicionais */
+/* Formato do coração */
 .heart::before,
 .heart::after {
     content: '';
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: red;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -15px;
+    top: -12.5px;
     left: 0;
 }
 
 .heart::after {
+    left: 12.5px;
     top: 0;
-    left: 15px;
 }
 
-/* Animação de flutuação */
-@keyframes float {
+/* Animação de subir */
+@keyframes floatUp {
     0% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0.8;
     }
-
     50% {
-        transform: translateY(-100px) rotate(45deg);
+        opacity: 1;
     }
-
     100% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
     }
 }
 
-/* Animação dos corações se movendo pela tela */
-@keyframes move {
+/* Animação de desvio lateral */
+@keyframes drift {
     0% {
-        left: calc(50% - 15px);
-        /* Inicia no meio da tela */
-        top: 100%;
+        transform: translateX(0);
     }
-
-    25% {
-        left: calc(50% + 50px);
-        /* Movimenta para a direita */
-        top: 70%;
-    }
-
-    50% {
-        left: calc(50% - 50px);
-        /* Movimenta para a esquerda */
-        top: 40%;
-    }
-
-    75% {
-        left: calc(50% + 30px);
-        /* Movimenta novamente para a direita */
-        top: 10%;
-    }
-
     100% {
-        left: calc(50% - 30px);
-        /* Retorna para o centro */
-        top: -10%;
+        transform: translateX(calc(var(--drift-direction, 1) * 50px));
     }
 }
 
