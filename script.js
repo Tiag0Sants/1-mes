@@ -33,7 +33,7 @@ function createHearts() {
 
 // Função para gerar cores aleatórias
 function getRandomColor() {
-    const colors = ['#FF5C5C', '#FF8C5C', '#FF5CCB', '#FFB75C'];
+    const colors = ['#FF5C5C', '#FF8C5C', '#FF5CCB', '#FFB75C', '#FFD700'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 

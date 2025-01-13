@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,7 @@
 <body>
     <!-- Ícone de som -->
     <div class="audio-container">
-        <i class="fas fa-volume-mute" id="audio-icon" onclick="playMusic()"></i>
+        <i class="fas fa-volume-mute" id="audio-icon" onclick="toggleMusic()"></i>
     </div>
 
     <!-- Música de fundo -->
@@ -44,10 +43,6 @@
                 <img src="fotos/foto8.jpg" alt="Foto 8" class="photo">
                 <img src="fotos/foto9.jpg" alt="Foto 9" class="photo">
                 <img src="fotos/foto10.jpg" alt="Foto 10" class="photo">
-                <img src="fotos/foto11.jpg" alt="Foto 11" class="photo">
-                <img src="fotos/foto12.jpg" alt="Foto 12" class="photo">
-                <img src="fotos/foto13.jpg" alt="Foto 13" class="photo">
-                <img src="fotos/foto14.jpg" alt="Foto 14" class="photo">
             </div>
         </div>
 
@@ -57,15 +52,15 @@
         </p>
     </div>
 
+    <!-- Script -->
     <script>
         // Função para tocar e pausar a música
-        function playMusic() {
-            var audio = document.getElementById('audio');
-            var icon = document.getElementById('audio-icon');
+        function toggleMusic() {
+            const audio = document.getElementById('audio');
+            const icon = document.getElementById('audio-icon');
 
             if (audio.paused) {
                 audio.play();
-                audio.muted = false;
                 icon.classList.remove('fa-volume-mute');
                 icon.classList.add('fa-volume-up');
             } else {
@@ -77,19 +72,29 @@
 
         // Função para criar corações animados
         function createHearts() {
-            var body = document.body;
-            for (var i = 0; i < 20; i++) {
-                var heart = document.createElement('div');
+            const body = document.body;
+
+            for (let i = 0; i < 3; i++) { // Reduzido o número de corações
+                const heart = document.createElement('div');
                 heart.classList.add('heart');
-                body.appendChild(heart);
-                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+                // Posição e animação aleatórias
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+
+                // Adiciona o coração ao body
+                body.appendChild(heart);
+
+                // Remove o coração após a animação
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
             }
         }
 
-        // Chama a função para criar os corações a cada 1 segundo
-        setInterval(createHearts, 1000);
+        // Intervalo para criar novos corações
+        setInterval(createHearts, 1500);
     </script>
 </body>
 
