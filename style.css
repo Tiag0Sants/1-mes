@@ -1,4 +1,4 @@
-/* Estilização geral */
+/* Fundo geral */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -13,13 +13,14 @@ body {
 h1 {
     font-family: 'Cursive', sans-serif;
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background: linear-gradient(45deg, #ff4081, #ff9800, #ffeb3b);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     animation: gradientAnimation 3s infinite;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-align: center;
 }
 
 /* Animação do gradiente no título */
@@ -27,9 +28,11 @@ h1 {
     0% {
         background-position: 0%;
     }
+
     50% {
         background-position: 100%;
     }
+
     100% {
         background-position: 0%;
     }
@@ -43,111 +46,84 @@ h1 {
     z-index: 1;
 }
 
-/* Mensagem abaixo do título */
+/* Mensagem */
 .message {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    margin: 20px auto;
+    max-width: 500px;
 }
 
 /* Carrossel */
 .carousel {
-    width: 100%;
+    width: 80%;
+    margin: 20px auto;
     overflow: hidden;
-    position: relative;
-    max-width: 90%;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-inner {
     display: flex;
-    animation: slide 20s infinite;
+    position: relative;
 }
 
 .photo {
     width: 100%;
-    flex-shrink: 0;
+    display: none;
+    /* Oculta todas as imagens inicialmente */
     object-fit: cover;
 }
 
-/* Animação do carrossel */
-@keyframes slide {
-
-    0%,
-    10% {
-        transform: translateX(0);
-    }
-
-    20%,
-    30% {
-        transform: translateX(-100%);
-    }
-
-    40%,
-    50% {
-        transform: translateX(-200%);
-    }
-
-    60%,
-    70% {
-        transform: translateX(-300%);
-    }
-
-    80%,
-    90% {
-        transform: translateX(-400%);
-    }
-
-    100% {
-        transform: translateX(-500%);
-    }
+.photo:first-child {
+    display: block;
+    /* Exibe a primeira imagem */
 }
 
 /* Animação dos corações */
 .heart {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-color: red;
     transform: rotate(45deg);
-    animation: floatUp 7s linear infinite;
-    opacity: 0.9; /* Aumentei a opacidade */
+    animation: float 5s ease-in-out infinite, move 6s ease-in-out infinite;
     z-index: 2;
-    /* Coloca os corações na frente das imagens */
-    opacity: 1;
+    opacity: 0.9;
+    /* Tornando mais visível */
 }
 
-/* Formato do coração */
+/* Corações adicionais */
 .heart::before,
 .heart::after {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: inherit;
+    width: 30px;
+    height: 30px;
+    background-color: red;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -12.5px;
+    top: -15px;
     left: 0;
 }
 
 .heart::after {
-    left: 12.5px;
     top: 0;
+    left: 15px;
 }
 
-/* Animação de subida */
-@keyframes floatUp {
+/* Animação de flutuação */
+@keyframes float {
     0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 0.8;
+        transform: translateY(0) rotate(45deg);
     }
+
     50% {
-        opacity: 1;
+        transform: translateY(-100px) rotate(45deg);
     }
+
     100% {
         transform: translateY(0) rotate(45deg);
     }
@@ -157,31 +133,26 @@ h1 {
 @keyframes move {
     0% {
         left: calc(50% - 15px);
-        /* Inicia no meio da tela */
         top: 100%;
     }
 
     25% {
         left: calc(50% + 50px);
-        /* Movimenta para a direita */
         top: 70%;
     }
 
     50% {
         left: calc(50% - 50px);
-        /* Movimenta para a esquerda */
         top: 40%;
     }
 
     75% {
         left: calc(50% + 30px);
-        /* Movimenta novamente para a direita */
         top: 10%;
     }
 
     100% {
         left: calc(50% - 30px);
-        /* Retorna para o centro */
         top: -10%;
     }
 }
@@ -192,35 +163,5 @@ h1 {
     font-family: 'Georgia', serif;
     margin-top: 20px;
     color: #ff4081;
-}
-
-/* Ícone de som */
-.audio-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 100;
-}
-
-#audio-icon {
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fff;
-    transition: transform 0.3s;
-}
-
-#audio-icon:hover {
-    transform: scale(1.2);
-}
-
-/* Ajustes para animação dos corações */
-@keyframes floatUp {
-    0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-    }
+    text-align: center;
 }
