@@ -2,72 +2,38 @@
 function createHearts() {
     const body = document.body;
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) { // Reduzindo o número de corações
         const heart = document.createElement('div');
         heart.classList.add('heart');
 
-        // Configuração de posição e animação
+        // Definindo a posição inicial aleatória do coração
         heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.bottom = '0'; // Começa na base da tela
+        heart.style.bottom = '0'; // Definindo o início do movimento para a base da tela
+
+        // Definindo a duração da animação de forma aleatória
         heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-        heart.style.opacity = 0.8; // Aumentando a opacidade para mais visibilidade
+
+        // Definindo a cor aleatória para o coração
         heart.style.backgroundColor = getRandomColor();
 
+        // Aumentando a opacidade dos corações
+        heart.style.opacity = '0.9';
+
+        // Adicionando o coração ao DOM
         body.appendChild(heart);
 
-        // Removendo o coração após a animação
+        // Removendo o coração após o término da animação
         setTimeout(() => {
             heart.remove();
-        }, 5000);
+        }, duration * 1000);
     }
 }
 
 // Função para gerar cores aleatórias
 function getRandomColor() {
-    const colors = ['#FF5C5C', '#FF8C5C', '#FF5CCB', '#FFB75C'];
+    const colors = ['#FF5C5C', '#FF8C5C', '#FF5CCB', '#FFB75C', '#FFD700'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Criar corações a cada 1 segundo
+// Chamando a função para criar os corações a cada 1 segundo
 setInterval(createHearts, 1000);
-
-// Função para gerenciar o carrossel
-function startCarousel() {
-    const carouselInner = document.getElementById('carousel-inner');
-    const images = carouselInner.querySelectorAll('.photo');
-    let currentIndex = 0;
-
-    // Ocultar todas as imagens, exceto a primeira
-    images.forEach((img, index) => {
-        img.style.display = index === 0 ? 'block' : 'none';
-    });
-
-    setInterval(() => {
-        images[currentIndex].style.display = 'none'; // Esconde a imagem atual
-        currentIndex = (currentIndex + 1) % images.length; // Próximo índice
-        images[currentIndex].style.display = 'block'; // Mostra a próxima imagem
-    }, 3000); // Troca a cada 3 segundos
-}
-
-// Função para tocar/pausar a música
-function playMusic() {
-    const audio = document.getElementById('audio');
-    const icon = document.getElementById('audio-icon');
-
-    // Verifica se o áudio está pausado ou tocando
-    if (audio.paused) {
-        audio.play()
-            .then(() => {
-                icon.classList.remove('fa-volume-mute');
-                icon.classList.add('fa-volume-up');
-            })
-            .catch(err => console.error('Erro ao reproduzir áudio:', err));
-    } else {
-        audio.pause();
-        icon.classList.remove('fa-volume-up');
-        icon.classList.add('fa-volume-mute');
-    }
-}
-
-// Inicializando o carrossel
-startCarousel();

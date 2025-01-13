@@ -56,8 +56,40 @@
         </p>
     </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        // Função para tocar e pausar a música
+        function playMusic() {
+            var audio = document.getElementById('audio');
+            var icon = document.getElementById('audio-icon');
+
+            if (audio.paused) {
+                audio.play();
+                audio.muted = false;
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            }
+        }
+
+        // Função para criar corações animados
+        function createHearts() {
+            var body = document.body;
+            for (var i = 0; i < 20; i++) {
+                var heart = document.createElement('div');
+                heart.classList.add('heart');
+                body.appendChild(heart);
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+            }
+        }
+
+        // Chama a função para criar os corações a cada 1 segundo
+        setInterval(createHearts, 1000);
+    </script>
 </body>
 
 </html>
