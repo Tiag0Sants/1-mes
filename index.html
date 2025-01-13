@@ -13,7 +13,7 @@
 <body>
     <!-- Ícone de som -->
     <div class="audio-container">
-        <i class="fas fa-volume-mute" id="audio-icon" onclick="toggleMusic()"></i>
+        <i class="fas fa-volume-mute" id="audio-icon" onclick="playMusic()"></i>
     </div>
 
     <!-- Música de fundo -->
@@ -56,50 +56,7 @@
         </p>
     </div>
 
-    <!-- Script -->
-    <script>
-        // Função para tocar e pausar a música
-        function toggleMusic() {
-            const audio = document.getElementById('audio');
-            const icon = document.getElementById('audio-icon');
-
-            if (audio.paused) {
-                audio.play();
-                icon.classList.remove('fa-volume-mute');
-                icon.classList.add('fa-volume-up');
-            } else {
-                audio.pause();
-                icon.classList.remove('fa-volume-up');
-                icon.classList.add('fa-volume-mute');
-            }
-        }
-
-        // Função para criar corações animados
-        function createHearts() {
-            const body = document.body;
-
-            for (let i = 0; i < 3; i++) { // Reduzido o número de corações
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-
-                // Posição e animação aleatórias
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-
-                // Adiciona o coração ao body
-                body.appendChild(heart);
-
-                // Remove o coração após a animação
-                setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }
-        }
-
-        // Intervalo para criar novos corações
-        setInterval(createHearts, 1500);
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

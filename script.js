@@ -14,10 +14,6 @@ function createHearts() {
         const duration = Math.random() * 4 + 3; // Duração entre 3s e 7s
         heart.style.animationDuration = `${duration}s`;
 
-        // Adicionando variações no deslocamento horizontal
-        const translateX = (Math.random() - 0.5) * 50; // Movimento horizontal aleatório
-        heart.style.setProperty('--translate-x', `${translateX}vw`);
-
         // Configurando cores aleatórias
         heart.style.backgroundColor = getRandomColor();
 

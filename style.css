@@ -63,6 +63,7 @@ h1 {
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
 .photo {
@@ -80,6 +81,7 @@ h1 {
     transform: rotate(45deg);
     animation: floatUp 7s linear infinite;
     opacity: 0.8;
+    z-index: 2;
 }
 
 /* Formato do coração */
@@ -143,4 +145,16 @@ h1 {
 
 #audio-icon:hover {
     transform: scale(1.2);
+}
+
+/* Ajustes para animação dos corações */
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+    }
 }
