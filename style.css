@@ -45,69 +45,14 @@ h1 {
     z-index: 1;
 }
 
-/* Mensagem */
-.message {
-    font-size: 1.2rem;
-    font-family: 'Georgia', serif;
-    margin: 20px auto;
-    max-width: 500px;
-}
-
-/* Carrossel */
-.carousel {
-    width: 80%;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.carousel-inner {
-    display: flex;
-    animation: slide 20s infinite;
-}
-
-.photo {
-    width: 100%;
-    flex-shrink: 0;
-    object-fit: cover;
-}
-
-/* Animação do carrossel */
-@keyframes slide {
-    0%, 10% {
-        transform: translateX(0);
-    }
-
-    20%, 30% {
-        transform: translateX(-100%);
-    }
-
-    40%, 50% {
-        transform: translateX(-200%);
-    }
-
-    60%, 70% {
-        transform: translateX(-300%);
-    }
-
-    80%, 90% {
-        transform: translateX(-400%);
-    }
-
-    100% {
-        transform: translateX(-500%);
-    }
-}
-
-/* Animação dos corações */
+/* Corações */
 .heart {
     position: absolute;
     width: 25px;
     height: 25px;
     background-color: red;
     transform: rotate(45deg);
-    animation: floatUp ease-in-out infinite, drift ease-in-out infinite;
+    animation: floatUp 5s linear infinite;
     z-index: 10;
     opacity: 0.8;
 }
@@ -133,7 +78,7 @@ h1 {
     top: 0;
 }
 
-/* Animação de subir */
+/* Animação de subida */
 @keyframes floatUp {
     0% {
         transform: translateY(100vh) rotate(45deg);
@@ -147,17 +92,6 @@ h1 {
         opacity: 0;
     }
 }
-
-/* Animação de desvio lateral */
-@keyframes drift {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(var(--drift-direction, 1) * 50px));
-    }
-}
-
 /* Mensagem final abaixo das fotos */
 .final-message {
     font-size: 1.5rem;
