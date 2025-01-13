@@ -80,7 +80,7 @@ h1 {
     background-color: red;
     transform: rotate(45deg);
     animation: floatUp 7s linear infinite;
-    opacity: 0.8;
+    opacity: 0.9; /* Aumentei a opacidade */
     z-index: 2;
 }
 
