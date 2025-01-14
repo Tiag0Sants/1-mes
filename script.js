@@ -70,5 +70,7 @@ function playMusic() {
     }
 }
 
-// Inicializando o carrossel
-startCarousel();
+// Inicializando o carrossel e outras funções
+document.addEventListener('DOMContentLoaded', () => {
+    startCarousel();
+});

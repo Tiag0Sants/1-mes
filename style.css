@@ -61,11 +61,14 @@ h1 {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background: #333;
+    /* Fundo visível para o carrossel */
 }
 
 .carousel-inner {
     display: flex;
     position: relative;
+    width: 100%;
 }
 
 .photo {
@@ -164,4 +167,23 @@ h1 {
     margin-top: 20px;
     color: #ff4081;
     text-align: center;
+}
+
+/* Ícone de áudio */
+.audio-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.audio-container i {
+    font-size: 24px;
+    color: #ff4081;
+    transition: transform 0.2s ease-in-out;
+}
+
+.audio-container i:hover {
+    transform: scale(1.2);
 }
