@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #5d4037, #3e2723);
+    background: linear-gradient(45deg, #351515, #3e2723);
     color: #fff;
     overflow: hidden;
     height: 100vh;
@@ -186,4 +186,26 @@ h1 {
 
 .audio-container i:hover {
     transform: scale(1.2);
+}
+
+/* Moldura para as fotos do carrossel */
+.photo {
+    width: 100%;
+    display: none;
+    /* Oculta todas as imagens inicialmente */
+    object-fit: cover;
+    border: 5px solid transparent;
+    /* Fundo transparente */
+    border-radius: 15px;
+    /* Cantos arredondados */
+    background-image: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Sombra para destacar as fotos */
+}
+
+.photo:first-child {
+    display: block;
+    /* Exibe a primeira imagem */
 }
